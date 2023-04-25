@@ -18,7 +18,7 @@ class SexBot:
 		self.compass = 0,0
 		self.topleftinv = 0,0
 		self.count = 0
-		self.runs = 50
+		self.rolls = 50
 
 	def read_mods(self):
 		file = open("mods.txt")
@@ -126,15 +126,15 @@ class SexBot:
 
 
 bot = SexBot()
-print("F1: start\tF2: set locations\tF3: set runs\tQ: quit")
+print("F1: start\tF2: set locations\tF3: set rolls\tQ: quit")
 
 while True:
 	event = keyboard.read_event()
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f1':
 		bot.count = 0;
-		print("rolling for", bot.runs, "runs, hold f2 to pause")
-		while bot.count < bot.runs:
+		print("rolling for", bot.rolls, "sextants, hold f2 to pause")
+		while bot.count < bot.rolls:
 			paused = bot.roll_sextant()
 			if paused:
 				bot.pause()
@@ -144,15 +144,15 @@ while True:
 				bot.pause()
 				continue
 		print("Run Finished")
-		print("F1: start\tF2: set locations\tF3: set runs\tQ: quit")
+		print("F1: start\tF2: set locations\tF3: set rolls\tQ: quit")
 		
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f2':
 		bot.set_locations()
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f3':
-		bot.runs = int(input("Input number of runs: "))
-		print("Number of runs set to", bot.runs)
+		bot.rolls = int(input("Input number of rolls: "))
+		print("Number of rolls set to", bot.rolls)
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'q':
 		print("QUITTING")
