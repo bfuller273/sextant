@@ -115,6 +115,8 @@ class SexBot:
 			return False
 
 	def pause(self):
+		pg.keyUp('shift')
+
 		print("Paused, press f3 to continue")
 		keyboard.wait('f3')
 
@@ -146,8 +148,8 @@ while True:
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f2':
 		bot.set_locations()
 
-	if event.event_type == keyboard.KEY_DOWN and event.name == 'f3':
-		bot.runs = input("Input number of runs: ")
+	if event.event_type == keyboard.KEY_DOWN and event.https://github.com/bfuller273/sextantname == 'f3':
+		bot.runs = int(input("Input number of runs: "))
 		print("Number of runs set to", bot.runs)
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'q':
