@@ -148,7 +148,7 @@ while True:
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f2':
 		bot.set_locations()
 
-	if event.event_type == keyboard.KEY_DOWN and event.https://github.com/bfuller273/sextantname == 'f3':
+	if event.event_type == keyboard.KEY_DOWN and event.sextantname == 'f3':
 		bot.runs = int(input("Input number of runs: "))
 		print("Number of runs set to", bot.runs)
 
