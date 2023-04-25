@@ -63,9 +63,9 @@ class SexBot:
 			return True
 
 		#move to 
-		pg.moveTo(self.sextantstash[0], self.sextantstash[1], random.uniform(0.5,0.75), pg.easeInOutQuad)
+		pg.moveTo(self.sextantstash[0], self.sextantstash[1], random.uniform(0.25,0.5), pg.easeInOutQuad)
 		pg.rightClick()
-		pg.moveTo(self.watchstone[0], self.watchstone[1], random.uniform(0.5,0.75), pg.easeInOutQuad)		
+		pg.moveTo(self.watchstone[0], self.watchstone[1], random.uniform(0.25,0.5), pg.easeInOutQuad)		
 		pg.keyDown('shift')
 
 		while True:
@@ -91,13 +91,13 @@ class SexBot:
 			return True
 
 		#move to compass
-		pg.moveTo(self.compass[0], self.compass[1], random.uniform(0.5,0.75), pg.easeInOutQuad)
+		pg.moveTo(self.compass[0], self.compass[1], random.uniform(0.25,0.5), pg.easeInOutQuad)
 		pg.rightClick()
 		#move to watchstone
-		pg.moveTo(self.watchstone[0], self.watchstone[1], random.uniform(0.5,0.75), pg.easeInOutQuad)
+		pg.moveTo(self.watchstone[0], self.watchstone[1], random.uniform(0.25,0.5), pg.easeInOutQuad)
 		pg.leftClick()	
 		#move to inv	
-		pg.moveTo(self.topleftinv[0], self.topleftinv[1], random.uniform(0.5,0.75), pg.easeInOutQuad)
+		pg.moveTo(self.topleftinv[0], self.topleftinv[1], random.uniform(0.25,0.5), pg.easeInOutQuad)
 		pg.leftClick()
 		#stash it
 		pg.press('right')
@@ -133,7 +133,7 @@ while True:
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f1':
 		bot.count = 0;
-		print("rolling, hold f2 to pause")
+		print("rolling for", bot.runs, "runs, hold f2 to pause")
 		while bot.count < bot.runs:
 			paused = bot.roll_sextant()
 			if paused:
@@ -143,12 +143,14 @@ while True:
 			if paused:
 				bot.pause()
 				continue
+		print("Run Finished")
+		print("F1: start\tF2: set locations\tF3: set runs\tQ: quit")
 		
 
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'f2':
 		bot.set_locations()
 
-	if event.event_type == keyboard.KEY_DOWN and event.sextantname == 'f3':
+	if event.event_type == keyboard.KEY_DOWN and event.name == 'f3':
 		bot.runs = int(input("Input number of runs: "))
 		print("Number of runs set to", bot.runs)
 
